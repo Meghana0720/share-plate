@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { requestAPI } from '../services/api';
 import '../styles/RequestedList.css';
 
 const RequestedList = () => {
@@ -21,7 +21,8 @@ const RequestedList = () => {
   const fetchRequests = async (name) => {
     try {
       setRefreshing(true);
-      const response = await axios.get(`/api/requests/donor/${name}`);
+      // CHANGED: Using requestAPI.getByDonor instead of axios.get
+      const response = await requestAPI.getByDonor(name);
       setRequests(response.data);
     } catch (error) {
       console.error('Error fetching requests:', error);
@@ -38,7 +39,8 @@ const RequestedList = () => {
     }
 
     try {
-      await axios.put(`/api/donations/request/${requestId}/accept`);
+      // CHANGED: Using requestAPI.accept instead of axios.put
+      await requestAPI.accept(requestId);
       fetchRequests(donorName);
       alert('Request accepted successfully! A unique code has been generated.');
     } catch (error) {
@@ -52,7 +54,8 @@ const RequestedList = () => {
     }
 
     try {
-      await axios.delete(`/api/donations/request/${requestId}`);
+      // CHANGED: Using requestAPI.reject instead of axios.delete
+      await requestAPI.reject(requestId);
       fetchRequests(donorName);
       alert('Request rejected successfully.');
     } catch (error) {
