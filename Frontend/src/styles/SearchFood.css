@@ -1,0 +1,1204 @@
+/* SearchFood.css - Complete Updated Version */
+
+.search-food {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Search Header */
+.search-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.search-header h2 {
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.search-header p {
+  color: #333333;
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+/* Current Time Display in Search Header */
+.current-time-display {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 500;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.time-icon {
+  font-size: 1.2rem;
+}
+
+.time-text {
+  font-size: 1rem;
+}
+
+/* Search Form */
+.search-form {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.search-basic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Form Groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #000000;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 1.25rem 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  background: white;
+  font-family: inherit;
+  color: #000000;
+  height: 60px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #f5576c;
+  box-shadow: 0 0 0 3px rgba(245, 87, 108, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-group input::placeholder {
+  color: #666666;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+/* Filter Section */
+.filter-section {
+  margin-bottom: 1.5rem;
+}
+
+.filter-toggle {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: 2px dashed #bdc3c7;
+  color: #000000;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.filter-toggle:hover {
+  border-color: #f5576c;
+  color: #f5576c;
+  background: #fff5f5;
+  transform: translateY(-2px);
+}
+
+.toggle-icon {
+  font-size: 1rem;
+}
+
+/* Search Filters */
+.search-filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 15px;
+  border-left: 4px solid #f5576c;
+  animation: slideDown 0.3s ease-out;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-group label {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #000000;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-group select,
+.filter-group input {
+  padding: 1.25rem 1.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  background: white;
+  color: #000000;
+  height: 60px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+  outline: none;
+  border-color: #f5576c;
+  box-shadow: 0 0 0 3px rgba(245, 87, 108, 0.1);
+  transform: translateY(-2px);
+}
+
+.clear-filters {
+  background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.clear-filters:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(149, 165, 166, 0.3);
+}
+
+/* Search Actions */
+.search-actions {
+  text-align: center;
+}
+
+.search-button {
+  background: linear-gradient(135deg, #f5576c, #f093fb);
+  color: white;
+  border: none;
+  padding: 1.5rem 4rem;
+  font-size: 1.3rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 5px 20px rgba(245, 87, 108, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 70px;
+}
+
+.search-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(245, 87, 108, 0.4);
+}
+
+.search-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button-icon {
+  font-size: 1.4rem;
+}
+
+.button-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Search Results */
+.search-results {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  flex-direction: column;
+}
+
+.results-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+/* Current Time Display in Results */
+.time-header {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.real-time-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #ff4757;
+  border-radius: 50%;
+  animation: blink 1s infinite;
+}
+
+.live-text {
+  font-weight: 600;
+}
+
+.time-stamp {
+  opacity: 0.9;
+}
+
+/* ======================================== */
+/* STATUS FILTER BUTTONS - ACTIVE BUTTON FIX */
+/* ======================================== */
+
+/* Status Filter Buttons Container */
+.status-filters {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Status Filter Button Styles */
+.status-filter-btn {
+  background: white;
+  border: 2px solid #e0e0e0;
+  color: #000000 !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.status-filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* ACTIVE button only - Purple gradient, white text, light black border */
+.status-filter-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important; /* Light black border */
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  font-weight: 500 !important; /* Light font weight, not too heavy */
+}
+
+/* Force icons to be black when not active */
+.status-filter-btn:not(.active) .filter-icon {
+  color: #000000;
+}
+
+/* Force icons to be white when active */
+.status-filter-btn.active .filter-icon {
+  color: white;
+}
+
+.filter-icon {
+  font-size: 1rem;
+}
+
+/* Loading Results */
+.loading-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #000000;
+}
+
+.loading-results .spinner {
+  margin: 0 auto 1.5rem;
+}
+
+/* No Results */
+.no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.no-results-icon {
+  font-size: 4rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.7;
+  color: #000000;
+}
+
+.no-results h4 {
+  font-size: 1.5rem;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.no-results p {
+  color: #333333;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.suggestions {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #f5576c;
+}
+
+.suggestions p {
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 1rem;
+}
+
+.suggestions ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #000000;
+}
+
+.suggestions li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.suggestions li:last-child {
+  margin-bottom: 0;
+}
+
+/* Donations Grid */
+.donations-grid {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+}
+
+/* Donation Card */
+.donation-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 2px solid #f0f0f0;
+  position: relative;
+}
+
+.donation-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border-color: #f5576c;
+}
+
+/* ======================= */
+/* CARD HEADER FIX - RICE, DAL to be WHITE (NORMAL SIZE & WEIGHT) */
+/* ======================= */
+
+.card-header {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Force ALL text in card header to be white */
+.card-header * {
+  color: white !important;
+}
+
+/* Food Name - Specific fix for RICE, DAL - Make them WHITE (normal size & weight) */
+.food-name {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+  font-size: 1.3rem; /* Normal font size */
+  font-weight: 600; /* Normal font weight */
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.food-emoji {
+  font-size: 1.5rem;
+  color: white !important;
+}
+
+.availability-info {
+  text-align: right;
+}
+
+/* Availability Badge - Black text with white background */
+.availability-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #000000 !important;
+  background: white !important;
+  border: 2px solid #e0e0e0 !important;
+}
+
+.availability-badge.available {
+  border-color: #4CAF50 !important;
+}
+
+.availability-badge.upcoming {
+  border-color: #2196F3 !important;
+}
+
+.availability-badge.expired {
+  border-color: #f44336 !important;
+}
+
+.time-remaining {
+  font-size: 0.8rem;
+  color: white !important;
+  font-weight: 500;
+  opacity: 0.9;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Auto-expire styles */
+.auto-expire-container {
+  margin: 10px 0;
+  padding: 8px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  border-left: 4px solid #6c757d;
+}
+
+.auto-expire-badge {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.auto-expire-badge.normal {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.auto-expire-badge.warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+  animation: pulse 2s infinite;
+}
+
+.auto-expire-badge.urgent {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  animation: pulse 1s infinite;
+}
+
+.auto-expire-badge.expired {
+  background-color: #dc3545;
+  color: white;
+  border: 1px solid #c82333;
+}
+
+.expiry-reason {
+  display: inline-block;
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.auto-expire-modal {
+  background-color: #e9ecef;
+  padding: 8px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.auto-expire-modal small {
+  color: #6c757d;
+}
+
+.detail-item .auto-expire {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.urgent-warning {
+  color: #dc3545;
+  font-weight: bold;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+/* Card Details */
+.card-details {
+  padding: 1.5rem;
+  background: white;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.detail-item.full-width {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.detail-item.full-width .detail-label {
+  margin-bottom: 0.5rem;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 120px;
+}
+
+.detail-value {
+  color: #000000;
+  text-align: right;
+  flex: 1;
+  margin-left: 1rem;
+  font-weight: 500;
+}
+
+.detail-value.servings {
+  color: #000000;
+  font-weight: 600;
+}
+
+.detail-value.donor {
+  color: #000000;
+  font-weight: 500;
+}
+
+.detail-value.contact {
+  color: #000000;
+  font-weight: 600;
+}
+
+.detail-value.location {
+  color: #000000;
+}
+
+.detail-value.instructions {
+  font-style: italic;
+  color: #000000;
+  text-align: left;
+}
+
+/* Food Type Badge */
+.food-type {
+  padding: 0.3rem 0.75rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.food-type.veg {
+  background: #4CAF50;
+  color: white;
+}
+
+.food-type.non-veg {
+  background: #f44336;
+  color: white;
+}
+
+.food-type.vegan {
+  background: #8BC34A;
+  color: white;
+}
+
+.food-type.snacks {
+  background: #FF9800;
+  color: white;
+}
+
+.food-type.drinks {
+  background: #2196F3;
+  color: white;
+}
+
+/* Card Actions */
+.card-actions {
+  padding: 1.5rem;
+  border-top: 2px solid #e9ecef;
+  background: white;
+}
+
+.request-button {
+  width: 100%;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.request-button.available {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.request-button.available:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45a049, #4CAF50);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.request-button.expired {
+  background: #bdc3c7;
+  color: #000000;
+  cursor: not-allowed;
+}
+
+.button-icon {
+  font-size: 1.2rem;
+}
+
+.quick-info {
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+.quick-info p {
+  font-size: 0.9rem;
+  color: #000000;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.7; }
+  100% { opacity: 1; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Request Form Modal Styles */
+.request-form-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.modal-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.modal-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+/* Donation Summary */
+.donation-summary {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid #f5576c;
+}
+
+.donation-summary h4 {
+  font-size: 1.3rem;
+  color: #000000;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.donation-summary p {
+  color: #000000;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.donation-summary strong {
+  font-weight: 600;
+  color: #000000;
+}
+
+/* Request Form */
+.request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.request-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.request-form label {
+  font-weight: 600;
+  color: #000000;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.request-form input,
+.request-form textarea {
+  padding: 1rem 1.25rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #000000;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.request-form input:focus,
+.request-form textarea:focus {
+  outline: none;
+  border-color: #f5576c;
+  box-shadow: 0 0 0 3px rgba(245, 87, 108, 0.1);
+}
+
+.request-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.request-form small {
+  font-size: 0.85rem;
+  color: #666666;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cancel-btn {
+  flex: 1;
+  padding: 1rem;
+  border: 2px solid #bdc3c7;
+  border-radius: 12px;
+  background: white;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn:hover:not(:disabled) {
+  background: #f8f9fa;
+  border-color: #95a5a6;
+}
+
+.submit-request-btn {
+  flex: 2;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 50px;
+}
+
+.submit-request-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #45a049, #4CAF50);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.submit-request-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Animation */
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-form {
+    padding: 1.5rem;
+  }
+
+  .search-basic {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .search-filters {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .results-header {
+    padding: 1.5rem;
+  }
+
+  .time-header {
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+  }
+
+  .status-filters {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .status-filter-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .donations-grid {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .food-name {
+    font-size: 1.3rem; /* Normal font size for mobile */
+    font-weight: 600; /* Normal font weight for mobile */
+  }
+
+  .availability-info {
+    text-align: left;
+  }
+
+  .detail-item {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .detail-value {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .search-button {
+    width: 100%;
+    justify-content: center;
+    padding: 1.25rem 2rem;
+    font-size: 1.2rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .filter-group select,
+  .filter-group input {
+    font-size: 1rem;
+    padding: 1rem 1.25rem;
+    height: 55px;
+  }
+
+  /* Responsive Modal */
+  .request-form-modal {
+    padding: 0.5rem;
+  }
+
+  .modal-content {
+    max-height: 85vh;
+  }
+
+  .modal-header {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .modal-header h3 {
+    font-size: 1.3rem;
+  }
+
+  .modal-body {
+    padding: 1.5rem;
+  }
+
+  .donation-summary {
+    padding: 1.25rem;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .cancel-btn,
+  .submit-request-btn {
+    width: 100%;
+  }
+
+  .request-form input,
+  .request-form textarea {
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-food {
+    padding: 0 0.5rem;
+  }
+
+  .search-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .donations-grid {
+    padding: 1rem;
+  }
+
+  .card-details {
+    padding: 1.25rem;
+  }
+
+  .card-actions {
+    padding: 1.25rem;
+  }
+
+  .request-button {
+    padding: 0.875rem 1.5rem;
+  }
+
+  .modal-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .modal-body {
+    padding: 1.25rem;
+  }
+
+  .donation-summary {
+    padding: 1rem;
+  }
+
+  .donation-summary h4 {
+    font-size: 1.2rem;
+  }
+
+  .status-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .status-filter-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,426 @@
+.confirm-pickup {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Pickup Header */
+.pickup-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.pickup-header h2 {
+  font-size: 2.5rem;
+  color: white; /* Changed to white */
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.pickup-header p {
+  font-size: 1.2rem;
+  color: white; /* Changed to white */
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Pickup Container */
+.pickup-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Pickup Guide */
+.pickup-guide {
+  padding: 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.pickup-guide h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+.guide-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+}
+
+.step-number {
+  background: white;
+  color: #667eea;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.step-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+.step-content p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin: 0;
+  line-height: 1.5;
+  color: white;
+}
+
+/* Center the fourth step on desktop */
+.guide-steps .step:nth-child(4) {
+  grid-column: 2 / 3;
+}
+
+/* Pickup Form */
+.pickup-form {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.form-group {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50; /* Keep in black */
+  margin-bottom: 1rem;
+}
+
+.label-icon {
+  font-size: 1.5rem;
+}
+
+.code-input {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  border: 3px solid #e0e0e0;
+  border-radius: 15px;
+  font-size: 1.3rem;
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+  background: white;
+  text-transform: uppercase;
+  color: #333; /* Keep input text dark for readability */
+}
+
+.code-input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+  transform: scale(1.02);
+}
+
+.code-input:disabled {
+  background: #f8f9fa;
+  cursor: not-allowed;
+}
+
+.input-hint {
+  font-size: 0.9rem;
+  color: #7f8c8d; /* Keep in original gray color */
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Confirm Button */
+.confirm-btn {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border: none;
+  padding: 1.25rem 3rem;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 5px 20px rgba(76, 175, 80, 0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.confirm-btn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+.confirm-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button-icon {
+  font-size: 1.3rem;
+}
+
+.button-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Message */
+.message {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  margin: 2rem auto;
+  max-width: 600px;
+  animation: slideIn 0.5s ease-out;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.message:hover {
+  transform: translateY(-2px);
+}
+
+.message.success {
+  background: linear-gradient(135deg, #d4edda, #c3e6cb);
+  border: 2px solid #c3e6cb;
+  color: #155724;
+}
+
+.message.error {
+  background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+  border: 2px solid #f5c6cb;
+  color: #721c24;
+}
+
+.message-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.message-content {
+  flex: 1;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.message-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.message.success .message-close:hover {
+  background: rgba(21, 87, 36, 0.1);
+}
+
+.message.error .message-close:hover {
+  background: rgba(114, 28, 36, 0.1);
+}
+
+/* Support Info */
+.support-info {
+  padding: 2rem;
+  border-top: 2px solid #e9ecef;
+}
+
+.support-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+  border-radius: 15px;
+  border: 2px solid #ffd43b;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.support-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.support-content h4 {
+  font-size: 1.3rem;
+  color: #856404; /* Keep original color */
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.support-content p {
+  color: #856404; /* Keep original color */
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.support-content ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #856404; /* Keep original color */
+}
+
+.support-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.support-content li:last-child {
+  margin-bottom: 0;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pickup-header h2 {
+    font-size: 2rem;
+  }
+
+  .pickup-header p {
+    font-size: 1.1rem;
+  }
+
+  .pickup-guide {
+    padding: 1.5rem;
+  }
+
+  .guide-steps {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Reset centering on mobile */
+  .guide-steps .step:nth-child(4) {
+    grid-column: auto;
+  }
+
+  .step {
+    padding: 1.25rem;
+  }
+
+  .pickup-form {
+    padding: 2rem 1.5rem;
+  }
+
+  .code-input {
+    font-size: 1.1rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .support-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .message {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 1.25rem;
+  }
+
+  .confirm-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .confirm-pickup {
+    padding: 0 0.5rem;
+  }
+
+  .pickup-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .pickup-form {
+    padding: 1.5rem 1rem;
+  }
+
+  .form-group label {
+    font-size: 1.1rem;
+  }
+
+  .code-input {
+    font-size: 1rem;
+    padding: 0.875rem 1rem;
+  }
+
+  .support-card {
+    padding: 1.25rem;
+  }
+}
