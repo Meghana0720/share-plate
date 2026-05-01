@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { donationAPI, requestAPI } from '../service/api';
 import '../styles/SearchFood.css';
 
 const SearchFood = () => {
@@ -64,20 +64,13 @@ const SearchFood = () => {
     setActiveFilter('ALL');
     
     try {
-      const params = new URLSearchParams();
-      params.append('pincode', searchData.pincode.trim());
-      
-      if (searchData.foodType && searchData.foodType !== '') {
-        params.append('foodType', searchData.foodType);
-      }
-      if (searchData.foodCategory && searchData.foodCategory !== '') {
-        params.append('foodCategory', searchData.foodCategory);
-      }
-      if (searchData.minServings && searchData.minServings > 0) {
-        params.append('minServings', searchData.minServings);
-      }
-
-      const response = await axios.get(`/api/donations/search?${params}`);
+      // CHANGED: Using donationAPI.search instead of axios.get
+      const response = await donationAPI.search(
+        searchData.pincode.trim(),
+        searchData.foodType,
+        searchData.foodCategory,
+        searchData.minServings
+      );
       
       setDonations(response.data);
     } catch (error) {
@@ -151,7 +144,8 @@ const SearchFood = () => {
     setIsSubmittingRequest(true);
     
     try {
-      await axios.post('/api/donations/request', {
+      // CHANGED: Using requestAPI.create instead of axios.post
+      await requestAPI.create({
         donationId: selectedDonation.id,
         receiverName: requestFormData.receiverName.trim(),
         purpose: requestFormData.purpose.trim(),

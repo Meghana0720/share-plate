@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { requestAPI } from '../service/api';
 import '../styles/AcceptedList.css';
 
 const AcceptedList = () => {
@@ -19,7 +19,8 @@ const AcceptedList = () => {
 
   const fetchAcceptedRequests = async (name) => {
     try {
-      const response = await axios.get(`/api/requests/accepted/${name}`);
+      // CHANGED: Using requestAPI.getAcceptedByDonor instead of axios.get
+      const response = await requestAPI.getAcceptedByDonor(name);
       setAcceptedRequests(response.data);
     } catch (error) {
       console.error('Error fetching accepted requests:', error);
@@ -40,7 +41,7 @@ const AcceptedList = () => {
   const getTimeRemaining = (requestedAt) => {
     const requested = new Date(requestedAt);
     const now = new Date();
-    const sevenHours = 7 * 60 * 60 * 1000; // 7 hours in milliseconds
+    const sevenHours = 7 * 60 * 60 * 1000;
     const timePassed = now - requested;
     const timeRemaining = sevenHours - timePassed;
     

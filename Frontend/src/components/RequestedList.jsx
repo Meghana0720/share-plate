@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { requestAPI } from '../services/api';
+import { requestAPI } from '../service/api';
 import '../styles/RequestedList.css';
 
 const RequestedList = () => {

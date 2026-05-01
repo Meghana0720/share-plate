@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { donationAPI } from '../service/api';
 import '../styles/FoodForm.css';
 
 const FoodForm = () => {
@@ -266,7 +266,8 @@ const FoodForm = () => {
       console.log('Until (UTC):', donationData.availableUntil);
       console.log('============================');
 
-      const response = await axios.post('/api/donations', donationData);
+      // CHANGED: Using donationAPI.create instead of axios.post
+      const response = await donationAPI.create(donationData);
       
       setSubmitStatus({
         type: 'success',

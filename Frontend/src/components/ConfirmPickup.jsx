@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { pickupAPI } from '../service/api';
 import '../styles/ConfirmPickup.css';
 
 const ConfirmPickup = () => {
@@ -27,9 +27,8 @@ const ConfirmPickup = () => {
     setMessage('');
 
     try {
-      const response = await axios.post('/api/donations/confirm-pickup', null, {
-        params: { uniqueCode: uniqueCode.trim().toUpperCase() }
-      });
+      // CHANGED: Using pickupAPI.confirm instead of axios.post
+      const response = await pickupAPI.confirm(uniqueCode.trim().toUpperCase());
       
       if (response.status === 200) {
         setMessage('✅ Pickup Confirmed — Thank you for helping reduce food waste! Your collection has been recorded.');
