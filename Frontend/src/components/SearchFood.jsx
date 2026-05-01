@@ -28,20 +28,18 @@ const SearchFood = () => {
   const [activeFilter, setActiveFilter] = useState('ALL');
   const [currentTime, setCurrentTime] = useState(new Date());
 
-  // ✅ NEW: Load saved pincode from localStorage when page loads
+  // ✅ ADDED: Load saved pincode from localStorage on page load
   useEffect(() => {
     const savedPincode = localStorage.getItem('lastPincode');
     if (savedPincode) {
-      console.log('Loading saved pincode:', savedPincode);
       setSearchData(prev => ({ ...prev, pincode: savedPincode }));
-      // Auto-search with saved pincode after component mounts
+      // Auto search after 500ms
       setTimeout(() => {
-        // Create a mock event to trigger search
         const mockEvent = { preventDefault: () => {} };
         handleSearch(mockEvent);
       }, 500);
     }
-  }, []); // Empty array = runs once when component mounts
+  }, []);
 
   // Update time every second
   useEffect(() => {
@@ -74,7 +72,7 @@ const SearchFood = () => {
       return;
     }
     
-    // ✅ NEW: Save pincode to localStorage when user searches
+    // ✅ ADDED: Save pincode to localStorage
     localStorage.setItem('lastPincode', searchData.pincode.trim());
     
     setIsSearching(true);
@@ -179,7 +177,7 @@ const SearchFood = () => {
     }
   };
 
-  // ========== AVAILABILITY CHECK ==========
+  // ========== CORRECT AVAILABILITY CHECK ==========
   const isAvailableNow = (donation) => {
     const now = currentTime;
     const availableFromUTC = new Date(donation.availableFrom);
@@ -634,7 +632,7 @@ const SearchFood = () => {
             <h4>No food donations found</h4>
             <p>We couldn't find any food donations matching your criteria.</p>
             <div className="suggestions">
-              <p><strong>Suggestions:</strong></p>
+              <p><strong>Suggesstions:</strong></p>
               <ul>
                 <li>Try a different pincode</li>
                 <li>Check if filters are too restrictive</li>
@@ -645,12 +643,12 @@ const SearchFood = () => {
         ) : (
           <div className="donations-grid">
             {filteredDonations.map(donation => {
+              const available = isAvailableNow(donation);
               const timeUntilExpiry = getTimeUntilExpiry(donation.autoExpireAt);
               const status = getDonationStatus(donation);
               
               return (
                 <div key={donation.id} className="donation-card">
-                  {/* Card content remains the same */}
                   <div className="card-header">
                     <h4 className="food-name">
                       <span className="food-emoji">
@@ -705,11 +703,74 @@ const SearchFood = () => {
                     </div>
                     
                     <div className="detail-item">
-                      <span className="detail-label">📍 Donor:</span>
-                      <span className="detail-value donor">
-                        {donation.donorName}
+                      <span className="detail-label">🍴 Type:</span>
+                      <span className={`food-type ${donation.foodType.toLowerCase()}`}>
+                        {donation.foodType}
                       </span>
                     </div>
+                    
+                    <div className="detail-item">
+                      <span className="detail-label">🥗 Category:</span>
+                      <span className="detail-value">{donation.foodCategory}</span>
+                    </div>
+                    
+                    <div className="detail-item">
+                      <span className="detail-label">🧊 Storage:</span>
+                      <span className="detail-value">{donation.storageCondition}</span>
+                    </div>
+                    
+                    <div className="detail-item">
+                      <span className="detail-label">📊 Status:</span>
+                      <span className="detail-value status">
+                        {status}
+                      </span>
+                    </div>
+                    
+                    <div className="detail-item">
+                      <span className="detail-label">⏰ Food Expiry:</span>
+                      <span className="detail-value expiry">
+                        {formatDateTime(donation.expiryTime)}
+                      </span>
+                    </div>
+                    
+                    <div className="detail-item">
+                      <span className="detail-label">📅 Available From:</span>
+                      <span className="detail-value">
+                        {formatDateTime(donation.availableFrom)}
+                      </span>
+                    </div>
+                    
+                    <div className="detail-item">
+                      <span className="detail-label">📅 Available Until:</span>
+                      <span className="detail-value">
+                        {formatDateTime(donation.availableUntil)}
+                      </span>
+                    </div>
+                    
+                    {donation.autoExpireAt && (
+                      <div className="detail-item">
+                        <span className="detail-label">🚨 Auto-expires:</span>
+                        <span className="detail-value auto-expire">
+                          {formatDateTime(donation.autoExpireAt)}
+                        </span>
+                      </div>
+                    )}
+                    
+                    <div className="detail-item">
+                      <span className="detail-label">📍 Donor:</span>
+                      <span className="detail-value donor">
+                        {donation.donorName} ({donation.donorType})
+                      </span>
+                    </div>
+                    
+                    {donation.donorEmail && (
+                      <div className="detail-item">
+                        <span className="detail-label">📧 Email:</span>
+                        <span className="detail-value email">
+                          {donation.donorEmail}
+                        </span>
+                      </div>
+                    )}
                     
                     <div className="detail-item">
                       <span className="detail-label">📞 Contact:</span>
@@ -717,21 +778,75 @@ const SearchFood = () => {
                     </div>
                     
                     <div className="detail-item">
+                      <span className="detail-label">🏠 Address:</span>
+                      <span className="detail-value address">
+                        {donation.address}
+                      </span>
+                    </div>
+                    
+                    <div className="detail-item">
                       <span className="detail-label">📍 Location:</span>
                       <span className="detail-value location">
                         {donation.city}, {donation.pincode}
+                        {donation.landmark && ` (${donation.landmark})`}
                       </span>
                     </div>
+                    
+                    {donation.specialInstructions && (
+                      <div className="detail-item full-width">
+                        <span className="detail-label">📝 Notes:</span>
+                        <span className="detail-value instructions">
+                          {donation.specialInstructions}
+                        </span>
+                      </div>
+                    )}
                   </div>
                   
                   <div className="card-actions">
                     <button 
-                      className={`request-button ${status === 'AVAILABLE' ? 'available' : 'expired'}`}
+                      className={`request-button ${
+                        status === 'AVAILABLE' ? 'available' : 
+                        status === 'UPCOMING' ? 'upcoming' : 
+                        'expired'
+                      }`}
                       onClick={() => openRequestForm(donation)}
                       disabled={status !== 'AVAILABLE'}
                     >
-                      {status === 'AVAILABLE' ? '📨 Send Request' : '⏰ Not Available'}
+                      {status === 'AVAILABLE' ? (
+                        <>
+                          <span className="button-icon">📨</span>
+                          Send Request
+                        </>
+                      ) : status === 'UPCOMING' ? (
+                        <>
+                          <span className="button-icon">⏳</span>
+                          Coming Soon
+                        </>
+                      ) : (
+                        <>
+                          <span className="button-icon">⏰</span>
+                          Not Available
+                        </>
+                      )}
                     </button>
+                    
+                    {status === 'AVAILABLE' && (
+                      <div className="quick-info">
+                        <p>Click to request this food donation</p>
+                        {timeUntilExpiry && timeUntilExpiry.class === 'urgent' && (
+                          <p className="urgent-warning">⚠️ Expiring soon - request quickly!</p>
+                        )}
+                        {timeUntilExpiry && timeUntilExpiry.class === 'critical' && (
+                          <p className="critical-warning">🔥 Expiring in seconds!</p>
+                        )}
+                      </div>
+                    )}
+                    
+                    {status === 'UPCOMING' && (
+                      <div className="quick-info">
+                        <p>Will be available at {formatDateTime(donation.availableFrom)}</p>
+                      </div>
+                    )}
                   </div>
                 </div>
               );
